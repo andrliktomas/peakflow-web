@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F5F7FA;color:#0E1B2E;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0B7A6E;text-decoration:none}a:hover{color:#075E55}
+input,textarea,select{font-family:inherit;font-size:15px;color:#0E1B2E}
+input:focus,textarea:focus,select:focus{outline:2px solid #12B5A3;outline-offset:1px;border-color:#0B7A6E}
+</style>
+</helmet>
+<div data-screen-label="Kontakt" style="min-height:100vh;background:#F5F7FA;color:#0E1B2E;font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;display:flex;flex-direction:column">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(245,247,250,.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3E8EF">
+  <div style="max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;color:#0E1B2E">
+      <span style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#0B7A6E,#12B5A3);display:grid;place-items:center;color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:15px">P</span>
+      <span style="font-family:'Outfit',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em">PeakFlow</span>
+    </a>
+    <nav style="display:flex;gap:26px;align-items:center;font-size:15px;font-weight:500;flex-wrap:wrap">
+      <a href="Sluzby.dc.html" style="color:#33415C" style-hover="color:#0E1B2E">Služby</a>
+      <a href="Home.dc.html#reference" style="color:#33415C" style-hover="color:#0E1B2E">Reference</a>
+      <a href="Home.dc.html#postup" style="color:#33415C" style-hover="color:#0E1B2E">Jak pracujeme</a>
+      <a href="Home.dc.html#faq" style="color:#33415C" style-hover="color:#0E1B2E">FAQ</a>
+      <a href="Kontakt.dc.html" style="color:#0E1B2E;font-weight:600">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section style="max-width:1180px;margin:0 auto;padding:80px 24px 96px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px;align-items:start;flex:1;width:100%">
+  <div>
+    <p style="margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#0B7A6E">Kontakt</p>
+    <h1 style="margin:0;font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(36px,4.4vw,56px);line-height:1.08;letter-spacing:-0.025em;text-wrap:pretty">Domluvme si discovery call.</h1>
+    <p style="margin:20px 0 0;font-size:18px;color:#5B6B84;max-width:480px">30–60 minut. Pochopíme vaše systémy, data a to, co vás trápí. Bez závazku a bez prezentace na hodinu.</p>
+    <ol style="list-style:none;margin:36px 0 0;padding:0;display:grid;gap:14px">
+      <li style="display:flex;gap:14px;align-items:start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#0E1B2E;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600">1</span><div><strong style="font-weight:600;display:block">Do 3 dnů</strong><span style="font-size:15px;color:#5B6B84">Shrnutí meetingu a hrubý návrh řešení.</span></div></li>
+      <li style="display:flex;gap:14px;align-items:start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#0E1B2E;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600">2</span><div><strong style="font-weight:600;display:block">Do 1 týdne</strong><span style="font-size:15px;color:#5B6B84">Upřesnění rozsahu a cenová nabídka.</span></div></li>
+      <li style="display:flex;gap:14px;align-items:start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#0E1B2E;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600">3</span><div><strong style="font-weight:600;display:block">Do 2 týdnů</strong><span style="font-size:15px;color:#5B6B84">Případný start PoC.</span></div></li>
+      <li style="display:flex;gap:14px;align-items:start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#0B7A6E;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:600">4</span><div><strong style="font-weight:600;display:block">Do 4 týdnů</strong><span style="font-size:15px;color:#5B6B84">První viditelné výsledky.</span></div></li>
+    </ol>
+    <div style="margin-top:40px;background:#fff;border:1px solid #E3E8EF;border-radius:18px;padding:22px 24px;font-size:15px">
+      <strong style="font-weight:600;display:block;margin-bottom:6px">PeakFlow s.r.o.</strong>
+      <span style="color:#5B6B84;display:block">Jiří Brtník</span>
+      <a href="https://peakflow.cz/">PeakFlow.cz</a>
+    </div>
+  </div>
+
+  <form style="background:#fff;border:1px solid #E3E8EF;border-radius:24px;padding:36px;box-shadow:0 20px 50px rgba(14,27,46,.06);display:grid;gap:18px" onSubmit="{{ submit }}">
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#E6F6F3;border:1px solid #BFEDE6;border-radius:14px;padding:16px 18px;color:#075E55;font-weight:500">Děkujeme. Ozveme se do 2 pracovních dnů s návrhem termínu.</div>
+    </sc-if>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+      <label style="display:grid;gap:6px;font-size:14px;font-weight:500">Jméno a příjmení<input name="name" required="{{ true }}" style="border:1px solid #D5DCE5;border-radius:10px;padding:12px 14px;background:#F9FAFC" placeholder="Jan Novák"></label>
+      <label style="display:grid;gap:6px;font-size:14px;font-weight:500">Firma<input name="company" style="border:1px solid #D5DCE5;border-radius:10px;padding:12px 14px;background:#F9FAFC" placeholder="Firma s.r.o."></label>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+      <label style="display:grid;gap:6px;font-size:14px;font-weight:500">E‑mail<input name="email" type="email" required="{{ true }}" style="border:1px solid #D5DCE5;border-radius:10px;padding:12px 14px;background:#F9FAFC" placeholder="jan@firma.cz"></label>
+      <label style="display:grid;gap:6px;font-size:14px;font-weight:500">Telefon<input name="phone" style="border:1px solid #D5DCE5;border-radius:10px;padding:12px 14px;background:#F9FAFC" placeholder="+420"></label>
+    </div>
+    <label style="display:grid;gap:6px;font-size:14px;font-weight:500">Co vás zajímá
+      <select name="topic" style="border:1px solid #D5DCE5;border-radius:10px;padding:12px 14px;background:#F9FAFC">
+        <option>Datová analytika a reporting</option><option>AI automatizace procesů</option><option>Obchodní procesy a CRM (Raynet)</option><option>Kombinace / nevím, poradíte</option>
+      </select>
+    </label>
+    <label style="display:grid;gap:6px;font-size:14px;font-weight:500">Jaké systémy používáte a co vás trápí<textarea name="message" rows="{{ 5 }}" style="border:1px solid #D5DCE5;border-radius:10px;padding:12px 14px;background:#F9FAFC;resize:vertical" placeholder="ERP, e‑shop, CRM… a co byste rádi vyřešili"></textarea></label>
+    <button type="submit" style="border:0;background:#0B7A6E;color:#fff;padding:15px 24px;border-radius:999px;font-weight:600;font-size:16px;cursor:pointer;box-shadow:0 10px 24px rgba(11,122,110,.25)" style-hover="background:#075E55">Odeslat a domluvit termín →</button>
+    <p style="margin:0;font-size:13px;color:#8A97AB">Odesláním souhlasíte se zpracováním údajů za účelem kontaktu. Ceny sdělujeme až po poptání.</p>
+  </form>
+</section>
+
+<footer style="border-top:1px solid #E3E8EF;background:#fff">
+  <div style="max-width:1180px;margin:0 auto;padding:40px 24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px;color:#5B6B84">
+    <span>© 2026 PeakFlow s.r.o.</span>
+    <div style="display:flex;gap:20px;flex-wrap:wrap"><a href="Home.dc.html" style="color:#5B6B84">Domů</a><a href="Sluzby.dc.html" style="color:#5B6B84">Služby</a><a href="Kontakt.dc.html" style="color:#5B6B84">Kontakt</a><a href="https://peakflow.cz/" style="color:#5B6B84">PeakFlow.cz</a></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false };
+  renderVals() {
+    return {
+      sent: this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

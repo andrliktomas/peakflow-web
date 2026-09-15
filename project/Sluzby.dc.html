@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F5F7FA;color:#0E1B2E;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#0B7A6E;text-decoration:none}a:hover{color:#075E55}
+</style>
+</helmet>
+<div data-screen-label="Služby" style="min-height:100vh;background:#F5F7FA;color:#0E1B2E;font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.55">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(245,247,250,.85);backdrop-filter:blur(12px);border-bottom:1px solid #E3E8EF">
+  <div style="max-width:1180px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;color:#0E1B2E">
+      <span style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#0B7A6E,#12B5A3);display:grid;place-items:center;color:#fff;font-family:'Outfit',sans-serif;font-weight:700;font-size:15px">P</span>
+      <span style="font-family:'Outfit',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em">PeakFlow</span>
+    </a>
+    <nav style="display:flex;gap:26px;align-items:center;font-size:15px;font-weight:500;flex-wrap:wrap">
+      <a href="Sluzby.dc.html" style="color:#0E1B2E;font-weight:600">Služby</a>
+      <a href="Home.dc.html#reference" style="color:#33415C" style-hover="color:#0E1B2E">Reference</a>
+      <a href="Home.dc.html#postup" style="color:#33415C" style-hover="color:#0E1B2E">Jak pracujeme</a>
+      <a href="Home.dc.html#faq" style="color:#33415C" style-hover="color:#0E1B2E">FAQ</a>
+      <a href="Kontakt.dc.html" style="color:#33415C" style-hover="color:#0E1B2E">Kontakt</a>
+      <a href="Kontakt.dc.html" style="color:#fff;background:#0B7A6E;padding:10px 18px;border-radius:999px;font-weight:600;box-shadow:0 6px 16px rgba(11,122,110,.25)" style-hover="background:#075E55;color:#fff">Domluvit discovery call</a>
+    </nav>
+  </div>
+</header>
+
+<section style="background:linear-gradient(180deg,#0E1B2E 0%,#132542 100%);color:#fff">
+  <div style="max-width:1180px;margin:0 auto;padding:72px 24px 64px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:end">
+    <div>
+      <p style="margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#7FE0D4">Služby</p>
+      <h1 style="margin:0;font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(36px,4.4vw,56px);line-height:1.08;letter-spacing:-0.025em;text-wrap:pretty">Tři pilíře, které se v praxi kombinují.</h1>
+      <p style="margin:20px 0 0;max-width:560px;font-size:18px;color:#C6D0DE">Napojit se na to, co klient má → vyčistit a sjednotit → dodat business výstup. Tento vzorec platí pro každý projekt.</p>
+    </div>
+    <nav style="display:grid;gap:10px;font-size:15px">
+      <a href="#analytika" style="display:flex;justify-content:space-between;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 18px;color:#fff" style-hover="background:rgba(255,255,255,.14);color:#fff"><span><strong style="font-weight:600">I.</strong> Datová analytika a reporting</span><span>→</span></a>
+      <a href="#automatizace" style="display:flex;justify-content:space-between;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 18px;color:#fff" style-hover="background:rgba(255,255,255,.14);color:#fff"><span><strong style="font-weight:600">II.</strong> AI automatizace procesů</span><span>→</span></a>
+      <a href="#crm" style="display:flex;justify-content:space-between;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 18px;color:#fff" style-hover="background:rgba(255,255,255,.14);color:#fff"><span><strong style="font-weight:600">III.</strong> Obchodní procesy a CRM</span><span>→</span></a>
+    </nav>
+  </div>
+</section>
+
+<section id="analytika" style="max-width:1180px;margin:0 auto;padding:88px 24px">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:48px">
+    <div>
+      <span style="width:46px;height:46px;border-radius:12px;background:#E6F6F3;color:#0B7A6E;display:grid;place-items:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:18px">I</span>
+      <h2 style="margin:18px 0 12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.12;letter-spacing:-0.02em">Datová analytika a reporting</h2>
+      <p style="margin:0 0 20px;color:#5B6B84">Pomáháme firmám vidět, co se skutečně děje v jejich byznysu — na základě dat, ne odhadů.</p>
+      <p style="margin:0;font-size:14px;color:#5B6B84"><strong style="color:#0E1B2E;font-weight:600">Pro koho:</strong> B2B e‑shopy, distributoři, firmy s více zdroji dat, které potřebují jednotný pohled na výkonnost.</p>
+    </div>
+    <div style="display:grid;gap:12px">
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr);gap:16px;align-items:start"><span style="font-family:'Outfit',sans-serif;font-weight:600;color:#0B7A6E">01</span><div><strong style="font-weight:600;display:block">Audit datových zdrojů</strong><span style="font-size:15px;color:#5B6B84">Zmapujeme, kde všude data žijí — databáze, ERP, e‑shop, Excel, cloud, on‑premise.</span></div><span style="font-size:14px;color:#0B7A6E">→ Mapa datových zdrojů a priorit</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr);gap:16px;align-items:start"><span style="font-family:'Outfit',sans-serif;font-weight:600;color:#0B7A6E">02</span><div><strong style="font-weight:600;display:block">Napojení na zdroje</strong><span style="font-size:15px;color:#5B6B84">Legacy databáze, ERP, e‑shop platformy a další systémy — i bez moderního API.</span></div><span style="font-size:14px;color:#0B7A6E">→ Funkční datové konektory</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr);gap:16px;align-items:start"><span style="font-family:'Outfit',sans-serif;font-weight:600;color:#0B7A6E">03</span><div><strong style="font-weight:600;display:block">Vlastní datová pipeline</strong><span style="font-size:15px;color:#5B6B84">Bezpečné spojení (server, linka) bez závislosti na infrastruktuře klienta.</span></div><span style="font-size:14px;color:#0B7A6E">→ Spolehlivý, monitorovaný přenos</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr);gap:16px;align-items:start"><span style="font-family:'Outfit',sans-serif;font-weight:600;color:#0B7A6E">04</span><div><strong style="font-weight:600;display:block">Sanitace a transformace</strong><span style="font-size:15px;color:#5B6B84">Čištění, normalizace a validace — aby výsledkům šlo důvěřovat.</span></div><span style="font-size:14px;color:#0B7A6E">→ Čistá, konzistentní datová sada</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr);gap:16px;align-items:start"><span style="font-family:'Outfit',sans-serif;font-weight:600;color:#0B7A6E">05</span><div><strong style="font-weight:600;display:block">Datový sklad (BigQuery)</strong><span style="font-size:15px;color:#5B6B84">Škálovatelně, bezpečně a s plnou kontrolou nad náklady.</span></div><span style="font-size:14px;color:#0B7A6E">→ Centralizovaný datový sklad</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px;display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,.7fr);gap:16px;align-items:start"><span style="font-family:'Outfit',sans-serif;font-weight:600;color:#0B7A6E">06</span><div><strong style="font-weight:600;display:block">Reporting (Looker Studio)</strong><span style="font-size:15px;color:#5B6B84">Přehledné, akční dashboards zaměřené na klíčové business otázky.</span></div><span style="font-size:14px;color:#0B7A6E">→ Dashboards a reporty</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Prodejní analytika</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">RFM segmentace</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">ABC analýza</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">ROAS a atribuce</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Provozní reporting</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Finanční konsolidace</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="automatizace" style="background:#fff;border-top:1px solid #E3E8EF;border-bottom:1px solid #E3E8EF">
+  <div style="max-width:1180px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:48px">
+    <div>
+      <span style="width:46px;height:46px;border-radius:12px;background:#E6F6F3;color:#0B7A6E;display:grid;place-items:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:18px">II</span>
+      <h2 style="margin:18px 0 12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.12;letter-spacing:-0.02em">AI automatizace procesů</h2>
+      <p style="margin:0 0 20px;color:#5B6B84">Automatizujeme repetitivní marketingové a provozní procesy pomocí Pythonu a AI — s ohledem na specifika klienta.</p>
+      <p style="margin:0;font-size:14px;color:#5B6B84"><strong style="color:#0E1B2E;font-weight:600">Pro koho:</strong> e‑shopy s rozsáhlým katalogem, firmy s více jazykovými mutacemi a opakujícími se marketingovými úkoly.</p>
+    </div>
+    <div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px">
+        <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Napojení na interní systémy</strong><span style="font-size:15px;color:#5B6B84">ERP (Point, Raynet, Asana), e‑shop, SharePoint, FTP.</span></div>
+        <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Interní slovník / překlady</strong><span style="font-size:15px;color:#5B6B84">Firemní terminologie (CS/EN/DE/…), kterou AI používá pro konzistentní překlady.</span></div>
+        <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Generování marketingových materiálů</strong><span style="font-size:15px;color:#5B6B84">Kampaně, bannery z Figma šablon, texty a A/B varianty.</span></div>
+        <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Vendor‑agnostický přístup</strong><span style="font-size:15px;color:#5B6B84">Optimální model pro daný úkol — OpenAI, Anthropic, Google a další.</span></div>
+        <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Automatizace workflow</strong><span style="font-size:15px;color:#5B6B84">Python, Make a n8n pro pravidelné úlohy bez ručního zásahu.</span></div>
+        <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Monitoring a logování</strong><span style="font-size:15px;color:#5B6B84">Přehled o tom, co automatizace dělá a kdy selhala.</span></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:20px"><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Automatické překlady</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Generování bannerů</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Kategorizace produktů</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Extrakce z PDF a faktur</span><span style="font-size:13px;background:#E6F6F3;color:#0B7A6E;padding:6px 12px;border-radius:999px;font-weight:500">Drafty odpovědí podpory</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="crm" style="max-width:1180px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:48px">
+  <div>
+    <span style="width:46px;height:46px;border-radius:12px;background:#E6F6F3;color:#0B7A6E;display:grid;place-items:center;font-family:'Outfit',sans-serif;font-weight:700;font-size:18px">III</span>
+    <h2 style="margin:18px 0 12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.12;letter-spacing:-0.02em">Obchodní procesy a CRM</h2>
+    <p style="margin:0 0 20px;color:#5B6B84">Data z obchodní komunikace se dostanou do CRM sama, správně a bez ručního přepisování.</p>
+    <p style="margin:0;font-size:14px;color:#5B6B84"><strong style="color:#0E1B2E;font-weight:600">Pro koho:</strong> obchodní týmy v Raynetu nebo podobném CRM, které tráví hodiny přepisováním komunikace.</p>
+  </div>
+  <div>
+    <div style="background:#0E1B2E;color:#fff;border-radius:20px;padding:28px;display:grid;gap:0">
+      <p style="margin:0 0 18px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7FE0D4">Jak to funguje</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;font-size:14px">
+        <div style="background:rgba(255,255,255,.07);border-radius:12px;padding:14px"><strong style="display:block;font-weight:600;margin-bottom:4px">1 · Obchodník komunikuje</strong><span style="color:#C6D0DE">e‑mail, telefon, chat, schůzka</span></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:12px;padding:14px"><strong style="display:block;font-weight:600;margin-bottom:4px">2 · AI rozpozná údaje</strong><span style="color:#C6D0DE">případ, kontakt, fáze, hodnota</span></div>
+        <div style="background:rgba(255,255,255,.07);border-radius:12px;padding:14px"><strong style="display:block;font-weight:600;margin-bottom:4px">3 · Make namapuje data</strong><span style="color:#C6D0DE">scénář zpracuje a odešle</span></div>
+        <div style="background:rgba(18,181,163,.2);border:1px solid rgba(18,181,163,.4);border-radius:12px;padding:14px"><strong style="display:block;font-weight:600;margin-bottom:4px">4 · Raynet se vyplní</strong><span style="color:#C6D0DE">obchodník jen zkontroluje a potvrdí</span></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px">
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Napojení Raynet ↔ kanály</strong><span style="font-size:15px;color:#5B6B84">E‑mail, telefon, chat, kalendář.</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">AI asistent pro obchodní tým</strong><span style="font-size:15px;color:#5B6B84">Osobní chat, který rozumí kontextu případu.</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Mapování polí a validace</strong><span style="font-size:15px;color:#5B6B84">AI navrhne, obchodník potvrdí — human‑in‑the‑loop.</span></div>
+      <div style="background:#fff;border:1px solid #E3E8EF;border-radius:16px;padding:20px 22px"><strong style="font-weight:600;display:block;margin-bottom:4px">Přepis a sumarizace hovorů</strong><span style="font-size:15px;color:#5B6B84">Z telefonátu rovnou strukturovaný záznam.</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid #E3E8EF">
+  <div style="max-width:1180px;margin:0 auto;padding:72px 24px">
+    <div style="text-align:center;max-width:720px;margin:0 auto 40px">
+      <p style="margin:0 0 12px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#0B7A6E">Technologický stack</p>
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(28px,3vw,38px);line-height:1.12;letter-spacing:-0.02em">Python jako páteř. Cloud‑first, ne cloud‑only.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;font-size:15px">
+      <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5B6B84">Zdroje dat</span><p style="margin:6px 0 0">Legacy DB, ERP (Point, Raynet), e‑shop platformy, SharePoint, FTP, API</p></div>
+      <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5B6B84">Zpracování</span><p style="margin:6px 0 0">Python (pandas, SQLAlchemy), ETL/ELT, vlastní přenosová linka</p></div>
+      <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5B6B84">Sklad a reporting</span><p style="margin:6px 0 0">Google BigQuery, Looker Studio, GA4</p></div>
+      <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5B6B84">AI modely</span><p style="margin:6px 0 0">Multi‑model — OpenAI, Anthropic, Google a další dle úkolu</p></div>
+      <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5B6B84">Orchestrace</span><p style="margin:6px 0 0">Make, n8n, cron, Python schedulery</p></div>
+      <div style="background:#F5F7FA;border-radius:16px;padding:20px 22px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#5B6B84">Backend / hosting</span><p style="margin:6px 0 0">Supabase, Vercel, Figma plugin, REST API, webhooky</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:72px 24px 96px">
+  <div style="background:linear-gradient(135deg,#0B7A6E,#12B5A3);border-radius:28px;padding:56px 48px;color:#fff;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:center">
+    <div>
+      <h2 style="margin:0 0 12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-0.02em">Nevíte, kterým pilířem začít?</h2>
+      <p style="margin:0;font-size:17px;color:#D6F5F0;max-width:520px">Doporučujeme PoC nebo menší produkt — rychle uvidíte, jak spolupracujeme a jaký máme přínos.</p>
+    </div>
+    <a href="Kontakt.dc.html" style="text-align:center;background:#0E1B2E;color:#fff;padding:16px 24px;border-radius:999px;font-weight:600;font-size:16px" style-hover="background:#000;color:#fff">Domluvit discovery call →</a>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #E3E8EF;background:#fff">
+  <div style="max-width:1180px;margin:0 auto;padding:40px 24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px;color:#5B6B84">
+    <span>© 2026 PeakFlow s.r.o.</span>
+    <div style="display:flex;gap:20px;flex-wrap:wrap"><a href="Home.dc.html" style="color:#5B6B84">Domů</a><a href="Sluzby.dc.html" style="color:#5B6B84">Služby</a><a href="Kontakt.dc.html" style="color:#5B6B84">Kontakt</a><a href="https://peakflow.cz/" style="color:#5B6B84">PeakFlow.cz</a></div>
+  </div>
+</footer>
+</div>
+</x-dc>
+</body>
+</html>
