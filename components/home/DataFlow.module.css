@@ -1,0 +1,86 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  cursor: default;
+  transition: transform .35s, box-shadow .35s;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+.cardActive {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11, 122, 110, .18), 0 0 0 2px var(--teal-bright);
+}
+
+/* Per-step colour treatments, in flow order. */
+.cardDark {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.cardOutput {
+  background: var(--teal-50);
+  border-color: var(--teal-100);
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cardDark .eyebrow { color: var(--teal-light); }
+.cardOutput .eyebrow { color: var(--teal); }
+
+.title {
+  display: block;
+  margin: 8px 0 6px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.body {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+.cardDark .body { color: var(--on-dark); }
+.cardOutput .body { color: var(--text-slate); }
+
+.track {
+  margin: 22px auto 0;
+  max-width: 720px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+  border-radius: 2px;
+  transition: width .6s cubic-bezier(.4, 0, .2, 1);
+}
+
+.caption {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  min-height: 22px;
+}

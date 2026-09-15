@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------------
+   Shared layout + typography primitives.
+   Global (not a CSS Module) because all three pages compose from
+   exactly these, and the design reuses them verbatim.
+   --------------------------------------------------------------- */
+
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--section-y) var(--gutter);
+}
+
+.wrapTight { padding: 72px var(--gutter); }
+
+.sectionHead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.eyebrowLight { color: var(--teal-light); }
+
+.h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(30px, 3.4vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.h2 + .lead { margin-top: 16px; }
+
+.lead {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+/* --- Surfaces --- */
+.surfaceWhite {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.surfaceDark {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  text-align: center;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 15px 26px;
+  transition: background .2s, color .2s;
+}
+
+.btnAccent {
+  background: var(--teal-bright);
+  color: var(--teal-ink);
+  box-shadow: 0 10px 24px rgba(18, 181, 163, .3);
+}
+.btnAccent:hover {
+  background: var(--teal-light);
+  color: var(--teal-ink);
+}
+
+.btnPrimary {
+  background: var(--teal);
+  color: #fff;
+}
+.btnPrimary:hover {
+  background: var(--teal-dark);
+  color: #fff;
+}
+
+.btnDark {
+  background: var(--navy);
+  color: #fff;
+}
+.btnDark:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btnOnDark {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .3);
+  font-weight: 500;
+  padding: 15px 24px;
+}
+.btnOnDark:hover {
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+
+.btnOutlineDark {
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  padding: 13px 24px;
+  display: block;
+}
+.btnOutlineDark:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* --- Closing CTA band (shared by Home and Služby) --- */
+.ctaBand {
+  background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+  border-radius: 28px;
+  padding: 64px 48px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.ctaTitle {
+  margin: 0 0 14px;
+  font-weight: 600;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ctaBody {
+  margin: 0;
+  font-size: 17px;
+  color: var(--teal-wash);
+  max-width: 520px;
+}
+
+.ctaActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  :root { --section-y: 64px; }
+  .ctaBand {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 40px 28px;
+    gap: 28px;
+  }
+}

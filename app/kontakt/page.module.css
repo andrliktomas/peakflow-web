@@ -1,0 +1,102 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 80px var(--gutter) 96px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 64px;
+  align-items: flex-start;
+  flex: 1;
+  width: 100%;
+}
+
+.h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.lead {
+  margin: 20px 0 0;
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+.timeline {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.timelineNum {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+.timelineNumFinal { background: var(--teal); }
+
+.timelineTitle {
+  font-weight: 600;
+  display: block;
+}
+
+.timelineBody {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.vcard {
+  margin-top: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 22px 24px;
+  font-size: 15px;
+}
+.vcard strong {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+.vcard span,
+.vcard a {
+  display: block;
+}
+.vcard span { color: var(--text-muted); }
+
+.booking {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding: 56px var(--gutter) 72px;
+  }
+}

@@ -1,0 +1,272 @@
+.hero {
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-grad-end) 100%);
+  color: #fff;
+}
+
+.heroInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 72px var(--gutter) 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: 48px;
+  align-items: end;
+}
+
+.h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.heroLead {
+  margin: 20px 0 0;
+  max-width: 560px;
+  font-size: 18px;
+  color: var(--on-dark);
+}
+
+.jump {
+  display: grid;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.jumpLink {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: #fff;
+  transition: background .2s;
+}
+.jumpLink:hover {
+  background: rgba(255, 255, 255, .14);
+  color: #fff;
+}
+
+/* --- Pillar sections --- */
+.pillar {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--section-y) var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: 48px;
+}
+
+.numeral {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--teal-50);
+  color: var(--teal);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.pillarTitle {
+  margin: 18px 0 12px;
+  font-weight: 600;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.pillarBody {
+  margin: 0 0 20px;
+  color: var(--text-muted);
+}
+
+.audience {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.audience strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* --- Numbered delivery steps (pillar I) --- */
+.steps {
+  display: grid;
+  gap: 12px;
+}
+
+.stepRow {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) minmax(0, .7fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.stepNum {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.stepTitle {
+  font-weight: 600;
+  display: block;
+}
+
+.stepBody {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.stepOutcome {
+  font-size: 14px;
+  color: var(--teal);
+}
+
+/* --- Feature cards --- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 20px 22px;
+}
+.cardOutlined {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.card strong {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+.card span {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* --- Tag row --- */
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.tagsTight { margin-top: 8px; }
+
+.tag {
+  font-size: 13px;
+  background: var(--teal-50);
+  color: var(--teal);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+}
+
+/* --- CRM flow panel --- */
+.flowPanel {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.flowLabel {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+}
+
+.flowGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  font-size: 14px;
+}
+
+.flowStep {
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 14px;
+}
+.flowStepFinal {
+  background: rgba(18, 181, 163, .2);
+  border-color: rgba(18, 181, 163, .4);
+}
+.flowStep strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.flowStep span { color: var(--on-dark); }
+
+.crmCards { margin-top: 12px; }
+
+/* --- Tech stack --- */
+.stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  font-size: 15px;
+}
+
+.stackCard {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 20px 22px;
+}
+.stackCard span {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.stackCard p { margin: 6px 0 0; }
+
+.stackHead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+
+.stackTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px) {
+  .heroInner,
+  .pillar {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  .stepRow {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+  .stepOutcome {
+    grid-column: 2;
+  }
+}

@@ -1,0 +1,91 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* --- Full variant (Home) --- */
+.grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 48px var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.wordmark {
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.blurb {
+  margin: 0;
+  max-width: 300px;
+}
+
+.col {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.colTitle {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.col a { color: var(--text-muted); }
+.col a:hover { color: var(--teal); }
+
+.copyright {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 28px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* --- Compact variant (Služby, Kontakt) --- */
+.compact {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 40px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.compactLinks {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.compactLinks a { color: var(--text-muted); }
+.compactLinks a:hover { color: var(--teal); }
