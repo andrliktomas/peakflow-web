@@ -167,7 +167,7 @@ export default function HomePage() {
             </div>
             <div className={styles.heroChecks}>
               <span className={styles.heroCheck}>
-                <span aria-hidden="true">✓</span>Napojení bez moderního API
+                <span aria-hidden="true">✓</span>Napojíme i systémy bez API
               </span>
               <span className={styles.heroCheck}>
                 <span aria-hidden="true">✓</span>Žádný vendor lock‑in

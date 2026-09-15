@@ -8,6 +8,7 @@
 }
 
 .inner {
+  position: relative;
   max-width: var(--container);
   margin: 0 auto;
   padding: 16px var(--gutter);
@@ -46,15 +47,13 @@
   letter-spacing: -0.01em;
 }
 
-.nav {
+.navDesktop {
   display: flex;
   gap: 20px;
   align-items: center;
   font-size: 15px;
   font-weight: 500;
   white-space: nowrap;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
 
 .link { color: var(--text-slate); }
@@ -72,19 +71,92 @@
   border-radius: var(--radius-pill);
   font-weight: 600;
   box-shadow: 0 6px 16px rgba(11, 122, 110, .25);
+  white-space: nowrap;
 }
 .cta:hover {
   background: var(--teal-dark);
   color: #fff;
 }
 
-@media (max-width: 720px) {
-  .inner { gap: 12px; }
-  .nav { gap: 8px 14px; font-size: 14px; }
-  .cta { padding: 9px 15px; }
+/* --- Mobile dropdown (no JS: <details>) --- */
+.mobileNav { display: none; }
+
+.burger {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.burger::-webkit-details-marker { display: none; }
+
+/* Three bars drawn from one element: the middle is the box, the outer two
+   are its pseudo-elements. */
+.burgerBars,
+.burgerBars::before,
+.burgerBars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform .2s, opacity .2s;
+}
+.burgerBars {
+  position: relative;
+}
+.burgerBars::before,
+.burgerBars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burgerBars::before { top: -6px; }
+.burgerBars::after { top: 6px; }
+
+.mobileNav[open] .burgerBars { background: transparent; }
+.mobileNav[open] .burgerBars::before { transform: translateY(6px) rotate(45deg); }
+.mobileNav[open] .burgerBars::after { transform: translateY(-6px) rotate(-45deg); }
+
+.mobilePanel {
+  position: absolute;
+  right: var(--gutter);
+  left: var(--gutter);
+  top: calc(100% + 8px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(14, 27, 46, .16);
+  padding: 10px;
+  display: grid;
+  gap: 2px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.mobilePanel .link,
+.mobilePanel .linkActive {
+  padding: 13px 14px;
+  border-radius: 10px;
+}
+.mobilePanel .link:hover,
+.mobilePanel .linkActive {
+  background: var(--bg);
+}
+.mobilePanel .cta {
+  margin-top: 6px;
+  text-align: center;
+  padding: 13px 18px;
+}
+
+@media (max-width: 760px) {
+  .navDesktop { display: none; }
+  .mobileNav { display: block; }
 }
 
 @media (max-width: 420px) {
   .wordmark { font-size: 18px; }
-  .nav { gap: 6px 12px; }
 }

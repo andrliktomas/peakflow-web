@@ -598,6 +598,18 @@
     padding: 64px var(--gutter) 64px;
   }
   .heroVisual { max-width: 560px; }
+
+  /* Single column: there is no room to float above the card without landing on
+     the copy above it, so the chip rejoins the normal flow. Note this must also
+     clear `top`/`left` — leaving one of them set while adding another anchor
+     stretches the box across the whole column. */
+  .floatLabel {
+    position: static;
+    top: auto;
+    left: auto;
+    display: inline-block;
+    margin: 0 0 12px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -606,9 +618,5 @@
     grid-template-columns: minmax(0, 1fr);
   }
   .bars { min-height: 120px; }
-  .floatLabel {
-    left: 0;
-    bottom: -8px;
-  }
   .heroChecks { gap: 10px 18px; }
 }
