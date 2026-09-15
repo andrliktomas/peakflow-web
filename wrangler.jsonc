@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "peakflow-web",
+  "compatibility_date": "2026-09-15",
+  // Static-assets-only Worker: no server code, just the pre-rendered export.
+  // `npx wrangler deploy` (the project's deploy command) needs this file to
+  // know what to upload — without it the deploy step fails with no entrypoint.
+  "assets": {
+    "directory": "./out",
+    // Serves out/404.html for unknown paths instead of a bare Cloudflare error.
+    "not_found_handling": "404-page"
+  }
+}

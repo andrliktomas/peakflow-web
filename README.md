@@ -13,7 +13,7 @@ Implementace návrhů z Claude Design (zdroj v `design-source/`).
 | Styly | CSS Modules + design tokeny v `app/globals.css` |
 | Fonty | Outfit + DM Sans, self-hostované přes `next/font` |
 | Build | statický export (`output: "export"`) → složka `out/` |
-| Hosting | Cloudflare Pages |
+| Hosting | Cloudflare Workers (static assets) |
 
 Žádný runtime server — celý web jsou předgenerované HTML soubory.
 
@@ -71,8 +71,8 @@ Web3Forms i vlastním API.
 NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxxxxx
 ```
 
-V produkci: **Cloudflare Pages → Settings → Variables and Secrets** → přidat
-`NEXT_PUBLIC_FORM_ENDPOINT` (pro Production i Preview) a spustit nový deploy.
+V produkci: **Workers & Pages → peakflow-web → Settings → Variables and
+Secrets** → přidat `NEXT_PUBLIC_FORM_ENDPOINT` a spustit nový deploy.
 
 > Dokud proměnná není nastavená, formulář zvaliduje vstupy a zobrazí potvrzení,
 > ale **nic neodešle** — jen zaloguje varování do konzole prohlížeče.
@@ -83,44 +83,56 @@ V produkci: **Cloudflare Pages → Settings → Variables and Secrets** → při
 jsou **návrhové placeholdery** z designu. Před spuštěním je nahraďte reálnými
 hodnotami — jsou pohromadě v polích `CASES` a `QUOTES` v `app/page.tsx`.
 
-## Nasazení na Cloudflare Pages
+## Nasazení na Cloudflare
 
-Jednorázové nastavení přes dashboard, potom se každý push na `main` nasadí sám.
+Projekt běží jako **Cloudflare Worker se statickými assety** (Workers & Pages →
+projekt `peakflow-web`), napojený na tento GitHub repozitář. Každý push na
+`main` spustí build a deploy automaticky.
 
-1. **Cloudflare dashboard** → *Workers & Pages* → *Create* → *Pages* →
-   *Connect to Git* → vyberte tento repozitář.
-2. Build nastavení:
-   | Pole | Hodnota |
-   |---|---|
-   | Framework preset | `Next.js (Static HTML Export)` |
-   | Build command | `npm run build` |
-   | Build output directory | `out` |
-   | Node version | `22` (proměnná `NODE_VERSION=22`) |
-3. *Environment variables* → přidat `NEXT_PUBLIC_FORM_ENDPOINT` (viz výše).
-4. *Save and Deploy*.
+Build nastavení v dashboardu:
 
-Každý push na `main` = produkční deploy, každý pull request = preview URL.
+| Pole | Hodnota |
+|---|---|
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+
+Co se nahrává, určuje `wrangler.jsonc` v kořeni repozitáře:
+
+```jsonc
+{
+  "name": "peakflow-web",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
+```
+
+Žádný serverový kód — jen předgenerované HTML z `out/`. Bezpečnostní hlavičky
+a cache pravidla jsou v `public/_headers` (kopíruje se do `out/` při buildu).
+
+### Proměnné prostředí
+
+*Workers & Pages → peakflow-web → Settings → Variables and Secrets* → přidat
+`NEXT_PUBLIC_FORM_ENDPOINT` a spustit nový deploy. Protože jde o
+`NEXT_PUBLIC_*` proměnnou, zapeče se do buildu — po změně je vždy potřeba
+nový deploy, nestačí restart.
 
 ### Vlastní doména
 
-*Pages projekt* → *Custom domains* → *Set up a domain* → `peakflow.cz`
-(+ `www.peakflow.cz`). Pokud je doména v Cloudflare, DNS se nastaví samo;
-jinak přidejte `CNAME` na `<projekt>.pages.dev`.
+*peakflow-web → Domains → Add* → `peakflow.cz` (+ `www.peakflow.cz`).
+Pokud je doména v Cloudflare, DNS se nastaví samo; jinak přidejte `CNAME`
+na `peakflow-web.<váš-subdoména>.workers.dev`.
 
-### Alternativa: deploy z GitHub Actions
+### Deploy z příkazové řádky
 
-Místo Git integrace lze nasazovat přes `wrangler`. Do repozitáře přidejte
-secrets `CLOUDFLARE_API_TOKEN` a `CLOUDFLARE_ACCOUNT_ID` a krok:
-
-```yaml
-- uses: cloudflare/wrangler-action@v3
-  with:
-    apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-    accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-    command: pages deploy out --project-name=peakflow
+```bash
+npm run build
+npx wrangler deploy      # vyžaduje `npx wrangler login`
 ```
 
-`.github/workflows/ci.yml` zatím jen ověřuje typy a build na každém PR.
+`.github/workflows/ci.yml` ověřuje typy a build na každém PR.
 
 ## Poznámky k implementaci
 
