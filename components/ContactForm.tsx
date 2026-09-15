@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { formEndpoint } from "@/lib/site";
+import { WEB3FORMS_ENDPOINT, contact, web3formsKey } from "@/lib/site";
 import styles from "./ContactForm.module.css";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -21,31 +21,60 @@ export function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
 
-    // Honeypot — bots fill every field they find, humans never see this one.
-    if (data.get("website")) {
+    // Honeypot. `botcheck` is Web3Forms' own field name, so a bot that fills it
+    // gets rejected server-side too, not just here.
+    if (data.get("botcheck")) {
       setStatus("sent");
       form.reset();
       return;
     }
 
-    if (!formEndpoint) {
-      console.warn(
-        "[PeakFlow] NEXT_PUBLIC_FORM_ENDPOINT není nastavený — formulář nic neodeslal. " +
-          "Nastavte ho v Cloudflare Pages → Settings → Environment variables.",
+    if (!web3formsKey) {
+      console.error(
+        "[PeakFlow] Chybí NEXT_PUBLIC_WEB3FORMS_KEY — formulář nemá kam odeslat. " +
+          "Nastavte ji v Workers & Pages → peakflow-web → Settings → Variables and Secrets " +
+          "a spusťte nový deploy.",
       );
-      setStatus("sent");
-      form.reset();
+      setStatus("error");
       return;
     }
+
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
 
     setStatus("sending");
     try {
-      const response = await fetch(formEndpoint, {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: `Nová poptávka z PeakFlow.cz — ${name}`,
+          from_name: "PeakFlow.cz",
+          // Reply in the mail client goes straight to the lead.
+          replyto: email,
+          name,
+          email,
+          company: data.get("company") || "—",
+          phone: data.get("phone") || "—",
+          topic: data.get("topic"),
+          message: data.get("message") || "—",
+        }),
       });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      // Web3Forms can answer 200 with success:false (e.g. a rejected key),
+      // so the body decides, not the status code alone.
+      const result = (await response.json().catch(() => null)) as
+        | { success?: boolean; message?: string }
+        | null;
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message ?? `HTTP ${response.status}`);
+      }
+
       setStatus("sent");
       form.reset();
     } catch (error) {
@@ -63,7 +92,8 @@ export function ContactForm() {
       )}
       {status === "error" && (
         <div className={styles.error} role="alert">
-          Odeslání se nepodařilo. Zkuste to prosím znovu, nebo nám napište přímo.
+          Odeslání se nepodařilo. Zkuste to prosím znovu, nebo nám napište přímo na{" "}
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>.
         </div>
       )}
 
@@ -133,8 +163,8 @@ export function ContactForm() {
       </label>
 
       <input
-        type="text"
-        name="website"
+        type="checkbox"
+        name="botcheck"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"

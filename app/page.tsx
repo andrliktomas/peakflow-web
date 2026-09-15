@@ -180,6 +180,10 @@ export default function HomePage() {
 
           {/* Illustrative mock of the delivered dashboard — not real data. */}
           <div className={styles.heroVisual}>
+            <div className={styles.floatLabel}>
+              <span>Datová základna</span>
+              <strong>Legacy DB · ERP · e‑shop</strong>
+            </div>
             <div className={styles.browser} aria-hidden="true">
               <div className={styles.browserBar}>
                 <span className={styles.dot} />
@@ -239,20 +243,6 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className={styles.floatLabel}>
-              <span>Datová základna</span>
-              <strong>Legacy DB · ERP · e‑shop</strong>
-            </div>
-            <div className={styles.heroStats}>
-              <div className={styles.heroStat}>
-                <strong>20–40 h</strong>
-                <span>měsíčně ušetřené ruční práce</span>
-              </div>
-              <div className={styles.heroStat}>
-                <strong>2–8 týdnů</strong>
-                <span>do prvního dashboardu</span>
               </div>
             </div>
           </div>

@@ -52,12 +52,8 @@ export default function KontaktPage() {
 
           <div className={styles.vcard}>
             <strong>{site.legalName}</strong>
-            <span>{site.founder}</span>
-            {/* TODO(klient): e-mail a telefon se zobrazí, jakmile je doplníte v lib/site.ts */}
-            {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
-            {contact.phone && (
-              <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
-            )}
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
             <a href={site.url}>PeakFlow.cz</a>
             {contact.bookingUrl && (
               <a

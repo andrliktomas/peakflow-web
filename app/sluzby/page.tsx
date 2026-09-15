@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 };
 
 const JUMP_LINKS = [
-  { href: "#analytika", num: "I.", label: "Datová analytika a reporting" },
-  { href: "#automatizace", num: "II.", label: "AI automatizace procesů" },
+  { href: "#automatizace", num: "I.", label: "AI automatizace procesů" },
+  { href: "#analytika", num: "II.", label: "Datová analytika a reporting" },
   { href: "#crm", num: "III.", label: "Obchodní procesy a CRM" },
 ];
 
@@ -136,32 +136,30 @@ export default function SluzbyPage() {
       </section>
 
       {/* ===== PILLAR I ===== */}
-      <section id="analytika" className={styles.pillar}>
+      <section id="automatizace" className={styles.pillar}>
         <div>
           <span className={styles.numeral}>I</span>
-          <h2 className={styles.pillarTitle}>Datová analytika a reporting</h2>
+          <h2 className={styles.pillarTitle}>AI automatizace procesů</h2>
           <p className={styles.pillarBody}>
-            Pomáháme firmám vidět, co se skutečně děje v jejich byznysu — na základě
-            dat, ne odhadů.
+            Automatizujeme repetitivní marketingové a provozní procesy pomocí Pythonu
+            a AI — s ohledem na specifika klienta.
           </p>
           <p className={styles.audience}>
-            <strong>Pro koho:</strong> B2B e‑shopy, distributoři, firmy s více zdroji
-            dat, které potřebují jednotný pohled na výkonnost.
+            <strong>Pro koho:</strong> e‑shopy s rozsáhlým katalogem, firmy s více
+            jazykovými mutacemi a opakujícími se marketingovými úkoly.
           </p>
         </div>
-        <div className={styles.steps}>
-          {ANALYTICS_STEPS.map((step, i) => (
-            <div key={step.title} className={styles.stepRow}>
-              <span className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <strong className={styles.stepTitle}>{step.title}</strong>
-                <span className={styles.stepBody}>{step.body}</span>
+        <div>
+          <div className={styles.cards}>
+            {AUTOMATION_CARDS.map(([title, body]) => (
+              <div key={title} className={styles.card}>
+                <strong>{title}</strong>
+                <span>{body}</span>
               </div>
-              <span className={styles.stepOutcome}>→ {step.outcome}</span>
-            </div>
-          ))}
-          <div className={`${styles.tags} ${styles.tagsTight}`}>
-            {ANALYTICS_TAGS.map((tag) => (
+            ))}
+          </div>
+          <div className={styles.tags}>
+            {AUTOMATION_TAGS.map((tag) => (
               <span key={tag} className={styles.tag}>
                 {tag}
               </span>
@@ -171,31 +169,33 @@ export default function SluzbyPage() {
       </section>
 
       {/* ===== PILLAR II ===== */}
-      <section id="automatizace" className="surfaceWhite">
+      <section id="analytika" className="surfaceWhite">
         <div className={styles.pillar}>
           <div>
             <span className={styles.numeral}>II</span>
-            <h2 className={styles.pillarTitle}>AI automatizace procesů</h2>
+            <h2 className={styles.pillarTitle}>Datová analytika a reporting</h2>
             <p className={styles.pillarBody}>
-              Automatizujeme repetitivní marketingové a provozní procesy pomocí Pythonu
-              a AI — s ohledem na specifika klienta.
+              Pomáháme firmám vidět, co se skutečně děje v jejich byznysu — na základě
+              dat, ne odhadů.
             </p>
             <p className={styles.audience}>
-              <strong>Pro koho:</strong> e‑shopy s rozsáhlým katalogem, firmy s více
-              jazykovými mutacemi a opakujícími se marketingovými úkoly.
+              <strong>Pro koho:</strong> B2B e‑shopy, distributoři, firmy s více zdroji
+              dat, které potřebují jednotný pohled na výkonnost.
             </p>
           </div>
-          <div>
-            <div className={styles.cards}>
-              {AUTOMATION_CARDS.map(([title, body]) => (
-                <div key={title} className={styles.card}>
-                  <strong>{title}</strong>
-                  <span>{body}</span>
+          <div className={styles.steps}>
+            {ANALYTICS_STEPS.map((step, i) => (
+              <div key={step.title} className={styles.stepRow}>
+                <span className={styles.stepNum}>{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <strong className={styles.stepTitle}>{step.title}</strong>
+                  <span className={styles.stepBody}>{step.body}</span>
                 </div>
-              ))}
-            </div>
-            <div className={styles.tags}>
-              {AUTOMATION_TAGS.map((tag) => (
+                <span className={styles.stepOutcome}>→ {step.outcome}</span>
+              </div>
+            ))}
+            <div className={`${styles.tags} ${styles.tagsTight}`}>
+              {ANALYTICS_TAGS.map((tag) => (
                 <span key={tag} className={styles.tag}>
                   {tag}
                 </span>

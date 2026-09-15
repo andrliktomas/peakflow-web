@@ -41,41 +41,48 @@ components/
   home/DataFlow        automaticky se střídající tok dat
   home/PillarTabs      záložky pilířů + simulovaný běh pipeline
   home/RoiCalculator   tři posuvníky → ušetřené hodiny a roční hodnota
-lib/site.ts            ⚠️ kontakty a endpoint formuláře — viz níže
+lib/site.ts            kontakty + Web3Forms klíč — viz níže
 design-source/         původní handoff z Claude Design (reference)
 ```
 
 ## ⚠️ Co je potřeba doplnit před spuštěním
 
-### 1. Kontakty — `lib/site.ts`
+### 1. Kontaktní formulář (Web3Forms) — zapojeno, ale ověřte doručování
+
+Formulář odesílá přes [Web3Forms](https://web3forms.com) na **info@peakflow.cz**.
+Access key je v `lib/site.ts`; jde přebít proměnnou `NEXT_PUBLIC_WEB3FORMS_KEY`
+bez zásahu do kódu.
+
+Klíč je *publishable* — je vidět ve zdrojovém kódu nasazené stránky, tak to má
+Web3Forms navržené. Kdyby na něj někdo poslal spam, zneplatněte ho na
+web3forms.com a vygenerujte nový.
+
+Po prvním nasazení **pošlete přes formulář zkušební zprávu** a ověřte, že
+dorazila — mrkněte i do spamu. Web3Forms u nové adresy někdy vyžaduje
+potvrzení e-mailu.
+
+Co odchází na Web3Forms:
+
+| Pole | Hodnota |
+|---|---|
+| `subject` | `Nová poptávka z PeakFlow.cz — <jméno>` |
+| `replyto` | e-mail odesílatele (odpověď jde rovnou leadovi) |
+| `name`, `company`, `email`, `phone`, `topic`, `message` | z formuláře |
+| `botcheck` | honeypot — skrytý checkbox, boti na něj sedají |
+
+Nevyplněná nepovinná pole se posílají jako `—`, ať v e-mailu nechybí řádek.
+Když klíč chybí, formulář **neodešle nic a zobrazí chybu** — nikdy nepředstírá
+úspěch.
+
+### 2. Rezervační odkaz — `lib/site.ts`
 
 ```ts
-export const contact = {
-  email: null,       // → "jiri@peakflow.cz"
-  phone: null,       // → "+420 …"
-  bookingUrl: null,  // → Calendly / Cal.com odkaz
-};
+bookingUrl: null,  // → Calendly / Cal.com odkaz
 ```
 
-Dokud jsou `null`, web je prostě nezobrazuje (žádné prázdné řádky ani mrtvé
-odkazy). Po vyplnění se e-mail a telefon objeví v patičce i na stránce Kontakt,
-`bookingUrl` přidá tlačítko „Rezervovat termín v kalendáři“.
-
-### 2. Odesílání formuláře — proměnná `NEXT_PUBLIC_FORM_ENDPOINT`
-
-Formulář posílá `FormData` na endpoint z této proměnné. Funguje s Formspree,
-Web3Forms i vlastním API.
-
-```bash
-# lokálně: .env.local
-NEXT_PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxxxxx
-```
-
-V produkci: **Workers & Pages → peakflow-web → Settings → Variables and
-Secrets** → přidat `NEXT_PUBLIC_FORM_ENDPOINT` a spustit nový deploy.
-
-> Dokud proměnná není nastavená, formulář zvaliduje vstupy a zobrazí potvrzení,
-> ale **nic neodešle** — jen zaloguje varování do konzole prohlížeče.
+Dokud je `null`, tlačítko „Rezervovat termín v kalendáři“ se nezobrazuje.
+Kontaktní e-mail a telefon už doplněné jsou (`info@peakflow.cz`,
+`+420 732 854 316`) a zobrazují se na Kontaktu i v patičce.
 
 ### 3. Obsahové placeholdery
 
@@ -114,9 +121,10 @@ a cache pravidla jsou v `public/_headers` (kopíruje se do `out/` při buildu).
 
 ### Proměnné prostředí
 
-*Workers & Pages → peakflow-web → Settings → Variables and Secrets* → přidat
-`NEXT_PUBLIC_FORM_ENDPOINT` a spustit nový deploy. Protože jde o
-`NEXT_PUBLIC_*` proměnnou, zapeče se do buildu — po změně je vždy potřeba
+Web funguje i bez nich — Web3Forms klíč má výchozí hodnotu v `lib/site.ts`.
+Pokud ho chcete přebít, přidejte `NEXT_PUBLIC_WEB3FORMS_KEY` v
+*Workers & Pages → peakflow-web → Settings → Variables and Secrets*. Protože
+jde o `NEXT_PUBLIC_*` proměnnou, zapeče se do buildu — po změně je vždy potřeba
 nový deploy, nestačí restart.
 
 ### Vlastní doména
@@ -141,9 +149,13 @@ Odchylky od prototypu v `design-source/` — všechny vědomé:
 - **Navigace** je jednotná na všech stránkách (4 odkazy + CTA). Prototyp měl na
   Home zkrácenou verzi a na podstránkách starší pětiodkazovou; zkrácená byla
   novější rozhodnutí. Na stránce Kontakt se CTA tlačítko nezobrazuje.
-- **Plovoucí štítek „Datová základna“** v hero je umístěný pod kartou
-  dashboardu. V prototypu byl absolutně pozicovaný přes celý sloupec a
-  překrýval statistiku „20–40 h“ — zadání dvakrát žádalo, aby nic nepřekrýval.
+- **Plovoucí štítek „Datová základna“** je v levém horním rohu karty
+  dashboardu, posazený nad titulkovou lištu (`top: -55px`, hodnota naměřená
+  v prohlížeči), takže nepřekrývá popisek „Přehled prodeje“.
+- **Pořadí pilířů**: AI automatizace je první (I), pak datová analytika (II)
+  a obchod/CRM (III) — na Home i na Služby, včetně římských číslic a
+  kotevních odkazů.
+- **Hero statistiky** („20–40 h“, „2–8 týdnů“) jsou odstraněné na přání.
 - **Trust strip** uvádí „Looker Studio“. V prototypu tam byl omylem text
   „Přehled prodeje · září 2026“ — zbytek po hromadném přejmenování.
 - **Responzivita**: prototyp byl kreslený pro desktop. Dvousloupcové mřížky se
@@ -151,3 +163,8 @@ Odchylky od prototypu v `design-source/` — všechny vědomé:
 - **Přístupnost**: záložky pilířů mají `role="tab"`, dekorativní prvky
   `aria-hidden`, formulář má `autoComplete` a honeypot proti botům,
   `prefers-reduced-motion` vypíná animace.
+
+Ověřeno v prohlížeči (Chromium): všechny interaktivní prvky, výpočty
+kalkulačky, tvar payloadu na Web3Forms i chybové stavy formuláře (neplatný
+klíč, HTTP 200 se `success:false`, chybějící klíč), nulový horizontální
+přetok na 390 px.

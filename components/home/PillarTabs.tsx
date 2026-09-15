@@ -20,23 +20,8 @@ type Pillar = {
 const PILLARS: Pillar[] = [
   {
     num: "I",
-    title: "Datová analytika",
-    eyebrow: "Pilíř I",
-    headline: "Datová analytika a reporting",
-    body: "Napojení na legacy i moderní systémy, sanitace, BigQuery a Looker Studio dashboardy.",
-    tags: ["prodejní analytika", "RFM segmentace", "ABC analýza"],
-    demoTitle: "Pipeline · noční běh",
-    rows: [
-      { label: "Legacy DB (MSSQL)", value: "12 480 řádků načteno", status: "OK" },
-      { label: "Sanitace", value: "duplicity: 312 odstraněno", status: "OK" },
-      { label: "BigQuery", value: "tabulka sales_daily aktualizována", status: "OK" },
-      { label: "Looker Studio", value: "dashboard obnoven 06:02", status: "LIVE" },
-    ],
-  },
-  {
-    num: "II",
     title: "AI automatizace",
-    eyebrow: "Pilíř II",
+    eyebrow: "Pilíř I",
     headline: "AI automatizace procesů",
     body: "Překlady, bannery, kampaně a kategorizace produktů — Python, Make a n8n, modely od více dodavatelů.",
     tags: ["překlady", "bannery z Figmy", "extrakce z PDF"],
@@ -46,6 +31,21 @@ const PILLARS: Pillar[] = [
       { label: "Slovník", value: "„aku“ → „Akku“ (DE), „cordless“ (EN)", status: "OK" },
       { label: "Překlad DE", value: "Akku‑Bohrschrauber 18V", status: "OK" },
       { label: "Banner", value: "Figma šablona → 3 formáty", status: "OK" },
+    ],
+  },
+  {
+    num: "II",
+    title: "Datová analytika",
+    eyebrow: "Pilíř II",
+    headline: "Datová analytika a reporting",
+    body: "Napojení na legacy i moderní systémy, sanitace, BigQuery a Looker Studio dashboardy.",
+    tags: ["prodejní analytika", "RFM segmentace", "ABC analýza"],
+    demoTitle: "Pipeline · noční běh",
+    rows: [
+      { label: "Legacy DB (MSSQL)", value: "12 480 řádků načteno", status: "OK" },
+      { label: "Sanitace", value: "duplicity: 312 odstraněno", status: "OK" },
+      { label: "BigQuery", value: "tabulka sales_daily aktualizována", status: "OK" },
+      { label: "Looker Studio", value: "dashboard obnoven 06:02", status: "LIVE" },
     ],
   },
   {

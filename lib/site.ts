@@ -1,10 +1,5 @@
 /**
- * Single place for everything the client still has to supply.
- *
- * The design handoff left three things open (see design-source/chats/chat1.md):
- * a contact e-mail, a phone number, and a booking link (Calendly / Cal.com).
- * Until they arrive, `null` means "not known yet" and the UI simply omits the
- * element rather than rendering an empty row or a dead link.
+ * Jedno místo pro identitu webu, kontakty a nastavení formuláře.
  */
 
 export const site = {
@@ -12,38 +7,39 @@ export const site = {
   legalName: "PeakFlow s.r.o.",
   domain: "peakflow.cz",
   url: "https://peakflow.cz",
-  founder: "Jiří Brtník",
   description:
     "Datová analytika a AI automatizace pro moderní e-shopy a B2B firmy. Propojíme ERP, e-shop a legacy databáze, data vyčistíme a dodáme dashboardy i AI automatizace.",
 } as const;
 
-/**
- * TODO(klient): doplnit skutečné kontakty.
- * Jakmile je vyplníte, objeví se automaticky na stránce Kontakt i v patičce.
- */
 export const contact: {
-  email: string | null;
-  phone: string | null;
-  /** Calendly / Cal.com / Google rezervace — nahradí formulář jako primární CTA. */
+  email: string;
+  phone: string;
+  /** Calendly / Cal.com / Google rezervace — zobrazí se jako tlačítko na Kontaktu. */
   bookingUrl: string | null;
 } = {
-  email: null,
-  phone: null,
+  email: "info@peakflow.cz",
+  phone: "+420 732 854 316",
+  // TODO(klient): doplnit rezervační odkaz, až bude.
   bookingUrl: null,
 };
 
 /**
- * Kam se odesílá kontaktní formulář.
+ * Kontaktní formulář jede přes Web3Forms (https://web3forms.com).
  *
- * Nastavte proměnnou prostředí `NEXT_PUBLIC_FORM_ENDPOINT` (v Cloudflare Pages
- * pod Settings → Environment variables) na URL vaší form služby, např.:
- *   Formspree  https://formspree.io/f/xxxxxxxx
- *   Web3Forms  https://api.web3forms.com/submit
- *   vlastní    https://api.peakflow.cz/kontakt
+ * `access_key` je *publishable* klíč: je navázaný na jednu e-mailovou adresu
+ * (info@peakflow.cz) a umí jen jedno — poslat na ni zprávu. Web3Forms s tím
+ * počítá, klíč je vidět ve zdrojovém kódu každé nasazené stránky, takže ho
+ * nemá smysl tajit v repozitáři.
  *
- * Endpoint dostane JSON i `multipart/form-data` (posíláme FormData, aby to
- * fungovalo s většinou služeb bez dalšího nastavení) a musí vrátit 2xx.
- * Dokud proměnná není nastavená, formulář validuje a zobrazí potvrzení,
- * ale nic neodesílá — a do konzole zaloguje varování.
+ * Jde přebít proměnnou `NEXT_PUBLIC_WEB3FORMS_KEY` (Workers & Pages →
+ * peakflow-web → Settings → Variables and Secrets), aby šel klíč vyměnit bez
+ * zásahu do kódu. Protože je to `NEXT_PUBLIC_*` proměnná, zapeče se do buildu
+ * — po změně je vždy potřeba nový deploy, restart nestačí.
+ *
+ * Kdyby na klíč někdo poslal spam, zneplatněte ho na web3forms.com, vygenerujte
+ * nový a přepište ho tady (nebo v proměnné).
  */
-export const formEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "";
+export const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
+export const web3formsKey =
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "0704ad42-9561-46ee-b379-c581b45ed4e6";

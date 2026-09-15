@@ -82,15 +82,16 @@
 /* --- Dashboard mock --- */
 .heroVisual {
   animation: rise .7s .15s ease both;
+  position: relative;
 }
 
-/* The label sits below the dashboard card, nudged left so it still reads as a
-   floating chip. It is deliberately NOT absolutely positioned: the design brief
-   asked twice for this label to stop overlapping neighbouring content. */
+/* Floating chip pinned to the dashboard card's top-left corner. It sits just
+   above the card's title bar (measured: -55px clears it) so it never covers
+   the "Přehled prodeje" caption. */
 .floatLabel {
-  display: inline-block;
-  margin: 14px 0 0 -14px;
-  position: relative;
+  position: absolute;
+  top: -55px;
+  left: -18px;
   z-index: 2;
   background: var(--surface);
   color: var(--text);
@@ -264,31 +265,6 @@
 .cellMargin {
   font-weight: 600;
   color: var(--teal);
-}
-
-.heroStats {
-  display: flex;
-  gap: 12px;
-  margin-top: 18px;
-  flex-wrap: wrap;
-}
-.heroStat {
-  flex: 1;
-  min-width: 140px;
-  background: rgba(255, 255, 255, .07);
-  border: 1px solid rgba(255, 255, 255, .12);
-  border-radius: 14px;
-  padding: 14px 18px;
-}
-.heroStat strong {
-  font-family: var(--font-outfit), sans-serif;
-  font-size: 26px;
-  font-weight: 600;
-  display: block;
-}
-.heroStat span {
-  font-size: 13px;
-  color: var(--on-dark-dim);
 }
 
 /* ===================== TRUST STRIP ===================== */

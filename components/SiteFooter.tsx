@@ -12,10 +12,11 @@ export function SiteFooter({ variant = "compact" }: { variant?: "full" | "compac
         <div className={styles.compact}>
           <span>© {year} {site.legalName}</span>
           <div className={styles.compactLinks}>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
             <Link href="/">Domů</Link>
             <Link href="/sluzby/">Služby</Link>
             <Link href="/kontakt/">Kontakt</Link>
-            <a href={site.url}>PeakFlow.cz</a>
           </div>
         </div>
       </footer>
@@ -42,9 +43,8 @@ export function SiteFooter({ variant = "compact" }: { variant?: "full" | "compac
         </div>
         <div className={styles.col}>
           <strong className={styles.colTitle}>Kontakt</strong>
-          <span>{site.founder}</span>
-          {contact.email && <a href={`mailto:${contact.email}`}>{contact.email}</a>}
-          {contact.phone && <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>}
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
           <a href={site.url}>PeakFlow.cz</a>
         </div>
       </div>
